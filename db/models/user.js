@@ -1,7 +1,7 @@
 'use strict';
 const { Model, Sequelize, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
-
+const { v4: uuidv4 } = require('uuid');
 const sequelize = require('../../config/database');
 const AppError = require('../../utils/appError').default;
 
@@ -9,13 +9,21 @@ const user = sequelize.define(
     'user',
     {
         id: {
+            type: DataTypes.STRING,
             allowNull: false,
-            autoIncrement: true,
             primaryKey: true,
-            type: DataTypes.INTEGER,
+            defaultValue: uuidv4,
+            validate: {
+                notNull: {
+                    msg: 'ID cannot be null',
+                },
+                notEmpty: {
+                    msg: 'ID cannot be empty',
+                },
+            },
         },
         userType: {
-            type: DataTypes.ENUM('0', '1', '2'),
+            type: DataTypes.ENUM('0', '1', '2', '3'),
             allowNull: false,
             validate: {
                 notNull: {

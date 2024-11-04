@@ -28,7 +28,8 @@
     "sequelize": "^6.37.5",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",
-    "travel_tour": "file:"
+    "travel_tour": "file:",
+    "uuid": "^11.0.2"
   },
   "devDependencies": {
     "sequelize-cli": "^6.6.2"

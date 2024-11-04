@@ -13,7 +13,6 @@ const port = process.env.PORT || 5000;
 
 app.use(express.json());
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use(cors());
 app.get('/', (req, res) => {
     res.status(200).json({
