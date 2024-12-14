@@ -1,6 +1,11 @@
-const user = require('../db/models/user');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+
+const user = require('../db/models/user');
+const customer = require('../db/models/customer');
+const guide = require('../db/models/guide');
+const staff = require('../db/models/staff');
+
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 
@@ -14,20 +19,69 @@ const signup = catchAsync(async (req, res, next) => {
     const body = req.body;
 
     if (!['0', '1', '2', '3'].includes(body.userType)) {
-        throw new AppError('Invalid user Type', 400);
+        return next(new AppError('Invalid user type', 400));
     }
 
+    // Check if the email already exists in the database
+    const existingUser = await user.findOne({ where: { email: body.email } });
+    if (existingUser) {
+        return next(new AppError('Email is already in use', 400));
+    }
+
+    // Create a new user if the email does not exist
     const newUser = await user.create({
         userType: body.userType,
         firstName: body.firstName,
         lastName: body.lastName,
         email: body.email,
+        sdt: body.sdt,
         password: body.password,
         confirmPassword: body.confirmPassword,
     });
 
     if (!newUser) {
         return next(new AppError('Failed to create the user', 400));
+    }
+
+    if (body.userType === '1') {
+        const customerInfo = {
+            userId: newUser.id,
+            birthdate: body.birthdate || null,
+            address: body.address || '',
+        };
+
+        const newCustomer = await customer.create(customerInfo);
+
+        if (!newCustomer) {
+            return next(new AppError('Failed to create the customer information', 400));
+        }
+    }
+
+    if (body.userType === '2') {
+        const guideInfo = {
+            userId: newUser.id,
+            birthdate: body.birthdate || null,
+            language: body.language || '',
+        };
+
+        const newGuide = await guide.create(guideInfo);
+
+        if (!newGuide) {
+            return next(new AppError('Failed to create the guide information', 400));
+        }
+    }
+
+    if (body.userType === '3') {
+        const staffInfo = {
+            userId: newUser.id,
+            role: body.role || '',
+        };
+
+        const newStaff = await staff.create(staffInfo);
+
+        if (!newStaff) {
+            return next(new AppError('Failed to create the staff information', 400));
+        }
     }
 
     const result = newUser.toJSON();
@@ -63,6 +117,8 @@ const login = catchAsync(async (req, res, next) => {
 
     return res.json({
         status: 'success',
+        account_name: result.lastName + ' ' + result.firstName,
+        user_type: result.userType,
         token,
     });
 });

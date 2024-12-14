@@ -1,19 +1,22 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-var cors = require('cors');
+const cors = require('cors');
 const routes = require('./routes/routes');
-// const userRouter = require('./route/userRoute');
 const catchAsync = require('./utils/catchAsync');
 const AppError = require('./utils/appError').default;
 const globalErrorHandler = require('./controllers/errorController');
 const { swaggerUi, swaggerSpec } = require('./config/swagger-ui');
 
 const app = express();
-const port = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 
+// Middleware
 app.use(express.json());
-
 app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+// Test route
 app.get('/', (req, res) => {
     res.status(200).json({
         status: 'success',
@@ -21,11 +24,13 @@ app.get('/', (req, res) => {
     });
 });
 
+// API routes
 app.use('/', routes);
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+// Swagger documentation
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
+// Handle unknown routes
 app.use(
     '*',
     catchAsync(async (req, res, next) => {
@@ -33,8 +38,11 @@ app.use(
     }),
 );
 
+// Global error handler
 app.use(globalErrorHandler);
 
-app.listen(port, async () => {
-    console.log(`Server is running on port ${port}`);
+// Start server
+app.listen(PORT, async () => {
+    console.log(`Server is running on port ${PORT}`);
+    console.log(`Swagger Docs available at http://localhost:${PORT}/api-docs`);
 });
