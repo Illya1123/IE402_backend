@@ -3,7 +3,7 @@ const { v4: uuidv4 } = require('uuid');
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('user', {
+    await queryInterface.createTable('guide', {
       id: {
         type: Sequelize.STRING,
             allowNull: false,
@@ -18,22 +18,13 @@ module.exports = {
                 },
             },
       },
-      userType: {
-        type: Sequelize.ENUM('0', '1', '2', '3'),
-      },
-      firstName: {
+      userId: {
         type: Sequelize.STRING
       },
-      lastName: {
-        type: Sequelize.STRING
+      birthdate: {
+        type: Sequelize.DATE
       },
-      email: {
-        type: Sequelize.STRING
-      },
-      sdt: {
-        type: Sequelize.STRING
-      },
-      password: {
+      language: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -48,8 +39,19 @@ module.exports = {
         type: Sequelize.DATE
       }
     });
+    await queryInterface.addConstraint('guide', {
+      fields: ['userId'],
+      type: 'foreign key',
+      name: 'fk_guide_user', // Tên ràng buộc
+      references: {
+        table: 'user', // Tên bảng `user`
+        fields: ['id'], // Các cột trong bảng `users`
+      },
+      onDelete: 'CASCADE', // Xóa customer nếu user bị xóa
+      onUpdate: 'CASCADE',
+    });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('user');
+    await queryInterface.dropTable('guide');
   }
 };
