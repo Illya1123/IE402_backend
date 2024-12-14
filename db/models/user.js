@@ -73,6 +73,10 @@ const user = sequelize.define(
                 },
             },
         },
+        sdt: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         password: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -117,5 +121,24 @@ const user = sequelize.define(
         modelName: 'user',
     },
 );
+
+// Định nghĩa quan hệ (associations)
+user.associate = (models) => {
+    user.hasMany(models.customer, {
+        foreignKey: 'userId', // Khóa ngoại trong bảng customer
+        sourceKey: 'id', // Khóa chính trong bảng user
+        as: 'customers', // Alias để truy xuất khách hàng liên quan
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+    });
+
+    user.hasMany(models.customer, {
+        foreignKey: 'userType', // Khóa ngoại trong bảng customer
+        sourceKey: 'userType', // Cột trong bảng user
+        as: 'customerTypes', // Alias để truy xuất khách hàng theo loại
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+    });
+};
 
 module.exports = user;

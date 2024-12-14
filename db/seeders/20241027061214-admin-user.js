@@ -12,6 +12,7 @@ module.exports = {
                 firstName: 'Super',
                 lastName: 'Admin',
                 email: process.env.ADMIN_EMAIL,
+                sdt: '0123456789',
                 password: hashPassword,
                 createdAt: new Date(),
                 updatedAt: new Date(),
