@@ -47,7 +47,23 @@ DATABASE_URL=
 ADMIN_EMAIL=
 ADMIN_PASSWORD=
 
+TOUR_GUIDE_EMAIL=
+TOUR_GUIDE_PASSWORD=
+
+STAFF_EMAIL=
+STAFF_PASSWORD=
+
+CUSTOMER_EMAIL=
+CUSTOMER_PASSWORD=
+
 ```
+### Bước 4: lệnh khởi tạo các table cho PostgreSQL
+```bash
+npm run migrate
+npm run seed:all
+
+```
+
 ### Bước 4: Chạy server kiểu develop
 ```bash
 npm run start:dev
