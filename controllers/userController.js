@@ -17,4 +17,21 @@ const getAllUser = catchAsync(async (req, res, next) => {
     });
 });
 
-module.exports = { getAllUser };
+const getUser = catchAsync(async (req, res, next) => {
+    const { id } = req.params;
+    const foundUser = await user.findOne({
+        where: {
+            id
+        },
+        attributes: { exclude: ['password'] },
+    });
+    if (!foundUser) {
+        return next(new AppError('User not found', 404));
+    }
+    return res.status(200).json({
+        status: 'success',
+        data: foundUser,
+    });
+});
+
+module.exports = { getAllUser, getUser };
