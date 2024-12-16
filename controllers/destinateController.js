@@ -33,4 +33,46 @@ const createDestination = catchAsync(async (req, res, next) => {
     });
 });
 
-module.exports = {createDestination};
+const getAllDestinations = catchAsync(async (req, res, next) => {
+    const destinations = await destination.findAll();
+
+    if (!destinations || destinations.length === 0) {
+        return next(new AppError('No destinations found', 404));
+    }
+
+    return res.status(200).json({
+        status: 'success',
+        data: destinations,
+    });
+});
+
+const getDestinations = catchAsync(async (req, res, next) => {
+    const destinations = await destination.findAll();
+
+    if (!destinations || destinations.length === 0) {
+        return next(new AppError('No destinations found', 404));
+    }
+
+    return res.status(200).json({
+        status: 'success',
+        data: destinations,
+    });
+});
+
+const getDestination = catchAsync(async (req, res, next) => {
+    const { id } = req.params;
+
+    const destinationData = await destination.findByPk(id);
+
+    if (!destinationData) {
+        return next(new AppError('Destination not found', 404));
+    }
+
+    return res.status(200).json({
+        status: 'success',
+        data: destinationData,
+    });
+});
+
+
+module.exports = {createDestination, getAllDestinations, getDestinations};
