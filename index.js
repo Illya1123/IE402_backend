@@ -5,7 +5,9 @@ const routes = require('./routes/routes');
 const catchAsync = require('./utils/catchAsync');
 const AppError = require('./utils/appError').default;
 const globalErrorHandler = require('./controllers/errorController');
-const { swaggerUi, swaggerSpec } = require('./config/swagger-ui');
+// const { swaggerUi, swaggerSpec } = require('./config/swagger-ui');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./config/swagger-ui/swagger_output.json');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -28,7 +30,7 @@ app.get('/', (req, res) => {
 app.use('/', routes);
 
 // Swagger documentation
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Handle unknown routes
 app.use(
