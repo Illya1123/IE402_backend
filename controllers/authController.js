@@ -124,18 +124,15 @@ const login = catchAsync(async (req, res, next) => {
 });
 
 const authentication = catchAsync(async (req, res, next) => {
-    // 1. get the token from headers
     let idToken = '';
     if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
-        // Bearer asfdasdfhjasdflkkasdf
         idToken = req.headers.authorization.split(' ')[1];
     }
     if (!idToken) {
         return next(new AppError('Please login to get access', 401));
     }
-    // 2. token verification
     const tokenDetail = jwt.verify(idToken, process.env.JWT_SECRET_KEY);
-    // 3. get the user detail from db and add to req object
+
     const freshUser = await user.findByPk(tokenDetail.id);
 
     if (!freshUser) {
@@ -156,4 +153,63 @@ const restrictTo = (...userType) => {
     return checkPermission;
 };
 
-module.exports = { signup, login, authentication, restrictTo };
+const changePassword = catchAsync(async (req, res, next) => {
+    const { oldPassword, newPassword } = req.body;
+
+    if (!oldPassword || !newPassword) {
+        return next(new AppError('Please provide both old and new passwords', 400));
+    }
+
+    const currentUser = req.user; 
+    const userId = currentUser.id;
+
+    const foundUser = await user.findByPk(userId);
+    if (!foundUser) {
+        return next(new AppError('User not found', 404));
+    }
+
+    const isPasswordCorrect = await bcrypt.compare(oldPassword, foundUser.password);
+    if (!isPasswordCorrect) {
+        return next(new AppError('Old password is incorrect', 401));
+    }
+
+    const hashedNewPassword = await bcrypt.hash(newPassword, 12);
+
+    foundUser.password = hashedNewPassword;
+    await foundUser.save();
+
+    return res.status(200).json({
+        status: 'success',
+        message: 'Password changed successfully',
+    });
+});
+
+const updateUser = catchAsync(async (req, res, next) => {
+    const { firstName, lastName, sdt, address, birthdate } = req.body;
+
+    const currentUser = req.user; 
+    const userId = currentUser.id;
+
+    const foundUser = await user.findByPk(userId);
+    if (!foundUser) {
+        return next(new AppError('User not found', 404));
+    }
+
+    if (firstName !== undefined) foundUser.firstName = firstName;
+    if (lastName !== undefined) foundUser.lastName = lastName;
+    if (sdt !== undefined) foundUser.sdt = sdt;
+    if (address !== undefined) foundUser.address = address;
+    if (birthdate !== undefined) foundUser.birthdate = birthdate;
+
+    await foundUser.save();
+
+    const updatedUser = foundUser.toJSON();
+    delete updatedUser.password;
+
+    return res.status(200).json({
+        status: 'success',
+        data: updatedUser,
+    });
+});
+
+module.exports = { signup, login, authentication, restrictTo, changePassword, updateUser };
