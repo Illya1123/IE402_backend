@@ -70,6 +70,25 @@ app.post('/upload-avatar', upload.single('avatar'), (req, res) => {
     }
 });
 
+// Route GET để lấy avatar từ đường dẫn đầy đủ
+app.get('/photo', (req, res) => {
+    const filePath = req.query.path; // Lấy đường dẫn từ query parameter
+    
+    // Kiểm tra đường dẫn hợp lệ và giới hạn trong thư mục 'uploads'
+    if (filePath && filePath.startsWith('./uploads/')) {
+        const avatarPath = path.join(__dirname, filePath);
+        
+        res.sendFile(avatarPath, (err) => {
+            if (err) {
+                console.error('Error sending file:', err);
+                res.status(404).json({ message: 'Avatar not found' });
+            }
+        });
+    } else {
+        res.status(400).json({ message: 'Invalid file path' });
+    }
+});
+
 // Test route
 app.get('/', (req, res) => {
     res.status(200).json({
