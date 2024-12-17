@@ -20,6 +20,32 @@
     }
   },
   "paths": {
+    "/upload": {
+      "post": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/upload-avatar": {
+      "post": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
     "/": {
       "get": {
         "description": "",
@@ -59,6 +85,9 @@
                   "example": "any"
                 },
                 "confirmPassword": {
+                  "example": "any"
+                },
+                "avatar": {
                   "example": "any"
                 },
                 "birthdate": {
