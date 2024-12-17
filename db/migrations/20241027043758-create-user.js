@@ -27,6 +27,9 @@ module.exports = {
       lastName: {
         type: Sequelize.STRING
       },
+      avatar: {
+        type: Sequelize.STRING
+      },
       email: {
         type: Sequelize.STRING
       },

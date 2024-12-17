@@ -1,5 +1,7 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+const multer = require('multer');
+const path = require('path');
 
 const user = require('../db/models/user');
 const customer = require('../db/models/customer');
@@ -8,6 +10,30 @@ const staff = require('../db/models/staff');
 
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
+
+// Multer Configuration for File Upload
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './uploads/avatars'); // Thư mục lưu ảnh avatar
+    },
+    filename: function (req, file, cb) {
+        const ext = path.extname(file.originalname);
+        const filename = `avatar-${Date.now()}${ext}`;
+        cb(null, filename);
+    }
+});
+
+const upload = multer({
+    storage: storage,
+    fileFilter: function (req, file, cb) {
+        const allowedMimeTypes = ['image/jpeg', 'image/png', 'image/jpg'];
+        if (allowedMimeTypes.includes(file.mimetype)) {
+            cb(null, true);
+        } else {
+            cb(new AppError('Only .png, .jpg, and .jpeg format allowed!', 400), false);
+        }
+    },
+});
 
 const generateToken = (payload) => {
     return jwt.sign(payload, process.env.JWT_SECRET_KEY, {
@@ -37,6 +63,7 @@ const signup = catchAsync(async (req, res, next) => {
         sdt: body.sdt,
         password: body.password,
         confirmPassword: body.confirmPassword,
+        avatar: body.avatar || null,
     });
 
     if (!newUser) {

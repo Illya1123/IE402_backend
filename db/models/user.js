@@ -58,6 +58,10 @@ const user = sequelize.define(
                 },
             },
         },
+        avatar: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
         email: {
             type: DataTypes.STRING,
             allowNull: false,
