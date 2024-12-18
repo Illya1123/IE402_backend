@@ -24,9 +24,6 @@ module.exports = {
       customer_id: {
         type: Sequelize.STRING
       },
-      bookingHour: {
-        type: Sequelize.DATE
-      },
       numberOfGuest: {
         type: Sequelize.INTEGER
       },

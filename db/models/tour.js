@@ -39,6 +39,10 @@ const tour = sequelize.define(
         },
       },
     },
+    img: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     description: {
       type: DataTypes.STRING,
       allowNull: true,
