@@ -48,6 +48,30 @@ const route = sequelize.define(
         },
       },
     },
+    startLatitude: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: 'Start Latitude cannot be null',
+        },
+        notEmpty: {
+          msg: 'Start Latitude cannot be empty',
+        },
+      },
+    },
+    endLongitude: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: 'End Longitude cannot be null',
+        },
+        notEmpty: {
+          msg: 'End Longitude cannot be empty',
+        },
+      },
+    },
     endLatitude: {
       type: DataTypes.STRING,
       allowNull: false,

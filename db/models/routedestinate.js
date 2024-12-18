@@ -8,22 +8,16 @@ const RouteDestinate = sequelize.define(
     route_id: {
       type: DataTypes.STRING,
       allowNull: false,
-      references: {
-        model: 'route',
-        key: 'id',
-      },
-      onUpdate: 'CASCADE',
-      onDelete: 'CASCADE',
+      primaryKey: true,
     },
     destinate_id: {
       type: DataTypes.STRING,
       allowNull: false,
-      references: {
-        model: 'destination',
-        key: 'id',
-      },
-      onUpdate: 'CASCADE',
-      onDelete: 'CASCADE',
+      primaryKey: true,
+    },
+    order: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     longitude: {
       type: DataTypes.STRING

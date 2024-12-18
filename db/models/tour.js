@@ -27,7 +27,7 @@ const tour = sequelize.define(
     guide_id: {
       type: DataTypes.STRING
     },
-    name: {
+    tourName: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {

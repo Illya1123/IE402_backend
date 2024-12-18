@@ -27,6 +27,12 @@ module.exports = {
       startLongitude: {
         type: Sequelize.STRING
       },
+      startLatitude: {
+        type: Sequelize.STRING
+      },
+      endLongitude: {
+        type: Sequelize.STRING
+      },
       endLatitude: {
         type: Sequelize.STRING
       },
