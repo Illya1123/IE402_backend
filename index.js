@@ -37,8 +37,8 @@ const upload = multer({ storage: storage });
 // Apply CORS before your routes
 app.use(cors({
     origin: 'http://localhost:3000',  // Allow requests from this origin (frontend)
-    methods: 'GET,POST',              // Allow GET and POST methods
-    allowedHeaders: 'Content-Type',   // Allow headers
+    methods: 'GET,POST,PUT,PATCH,DELETE',              // Allow GET and POST methods
+    allowedHeaders:  ['Content-Type', 'Authorization'],   // Allow headers
 }));
 
 app.use(express.json());
