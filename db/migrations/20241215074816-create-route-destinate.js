@@ -23,6 +23,10 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },
+      order: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
       longitude: {
         type: Sequelize.STRING
       },
