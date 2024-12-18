@@ -1,495 +1,532 @@
 {
-  "swagger": "2.0",
-  "info": {
-    "title": "Travel Tour API Project for Postgres",
-    "destcription": "API documentation for Travel Tour application",
-    "version": "1.0.0",
-    "description": ""
-  },
-  "host": "localhost:5000",
-  "basePath": "/",
-  "schemes": [
-    "http"
-  ],
-  "securityDefinitions": {
-    "bearerAuth": {
-      "type": "apiKey",
-      "name": "Authorization",
-      "in": "header",
-      "description": "Enter your token in the format: Bearer <token>"
-    }
-  },
-  "paths": {
-    "/upload": {
-      "post": {
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          }
-        }
-      }
+    "swagger": "2.0",
+    "info": {
+        "title": "Travel Tour API Project for Postgres",
+        "destcription": "API documentation for Travel Tour application",
+        "version": "1.0.0",
+        "description": ""
     },
-    "/upload-avatar": {
-      "post": {
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          }
-        }
-      }
-    },
-    "/photo": {
-      "get": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "path",
-            "in": "query",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        }
-      }
-    },
-    "/": {
-      "get": {
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/auth/signup": {
-      "post": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "userType": {
-                  "example": "any"
-                },
-                "email": {
-                  "example": "any"
-                },
-                "firstName": {
-                  "example": "any"
-                },
-                "lastName": {
-                  "example": "any"
-                },
-                "sdt": {
-                  "example": "any"
-                },
-                "password": {
-                  "example": "any"
-                },
-                "confirmPassword": {
-                  "example": "any"
-                },
-                "avatar": {
-                  "example": "any"
-                },
-                "birthdate": {
-                  "example": "any"
-                },
-                "address": {
-                  "example": "any"
-                },
-                "language": {
-                  "example": "any"
-                },
-                "role": {
-                  "example": "any"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Created"
-          }
-        }
-      }
-    },
-    "/auth/login": {
-      "post": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "email": {
-                  "example": "any"
-                },
-                "password": {
-                  "example": "any"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/users/": {
-      "get": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "authorization",
+    "host": "localhost:5000",
+    "basePath": "/",
+    "schemes": ["http"],
+    "securityDefinitions": {
+        "bearerAuth": {
+            "type": "apiKey",
+            "name": "Authorization",
             "in": "header",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
+            "description": "Enter your token in the format: Bearer <token>"
         }
-      }
     },
-    "/users/{id}": {
-      "get": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "authorization",
-            "in": "header",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/users/change-password": {
-      "patch": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "authorization",
-            "in": "header",
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "oldPassword": {
-                  "example": "any"
-                },
-                "newPassword": {
-                  "example": "any"
+    "paths": {
+        "/upload": {
+            "post": {
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
                 }
-              }
             }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/users/update-profile": {
-      "patch": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "authorization",
-            "in": "header",
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "firstName": {
-                  "example": "any"
-                },
-                "lastName": {
-                  "example": "any"
-                },
-                "sdt": {
-                  "example": "any"
-                },
-                "address": {
-                  "example": "any"
-                },
-                "birthdate": {
-                  "example": "any"
+        },
+        "/upload-avatar": {
+            "post": {
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
                 }
-              }
             }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/destinations/create": {
-      "post": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "example": "any"
-                },
-                "description": {
-                  "example": "any"
-                },
-                "openHour": {
-                  "example": "any"
-                },
-                "closeHour": {
-                  "example": "any"
-                },
-                "rate": {
-                  "example": "any"
-                },
-                "latitude": {
-                  "example": "any"
-                },
-                "longitude": {
-                  "example": "any"
+        },
+        "/photo": {
+            "get": {
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "path",
+                        "in": "query",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
                 }
-              }
             }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Created"
-          }
-        }
-      }
-    },
-    "/destinations/getAll": {
-      "get": {
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/destinations/get/{id}": {
-      "get": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/tours/create-tour": {
-      "post": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "authorization",
-            "in": "header",
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "tourName": {
-                  "example": "any"
-                },
-                "description": {
-                  "example": "any"
-                },
-                "startDate": {
-                  "example": "any"
-                },
-                "endDate": {
-                  "example": "any"
-                },
-                "price": {
-                  "example": "any"
-                },
-                "limitOfNumOfGuest": {
-                  "example": "any"
-                },
-                "tourType": {
-                  "example": "any"
-                },
-                "route_id": {
-                  "example": "any"
-                },
-                "guide_id": {
-                  "example": "any"
+        },
+        "/": {
+            "get": {
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
                 }
-              }
             }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Created"
-          }
-        }
-      }
-    },
-    "/routes/create-route": {
-      "post": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "startLatitude": {
-                  "example": "any"
-                },
-                "startLongitude": {
-                  "example": "any"
-                },
-                "endLatitude": {
-                  "example": "any"
-                },
-                "endLongitude": {
-                  "example": "any"
-                },
-                "name": {
-                  "example": "any"
-                },
-                "description": {
-                  "example": "any"
+        },
+        "/auth/signup": {
+            "post": {
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "userType": {
+                                    "example": "any"
+                                },
+                                "email": {
+                                    "example": "any"
+                                },
+                                "firstName": {
+                                    "example": "any"
+                                },
+                                "lastName": {
+                                    "example": "any"
+                                },
+                                "sdt": {
+                                    "example": "any"
+                                },
+                                "password": {
+                                    "example": "any"
+                                },
+                                "confirmPassword": {
+                                    "example": "any"
+                                },
+                                "avatar": {
+                                    "example": "any"
+                                },
+                                "birthdate": {
+                                    "example": "any"
+                                },
+                                "address": {
+                                    "example": "any"
+                                },
+                                "language": {
+                                    "example": "any"
+                                },
+                                "role": {
+                                    "example": "any"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    }
                 }
-              }
             }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Created"
-          }
-        }
-      }
-    },
-    "/routes/get-route/{id}": {
-      "get": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/routes/{route_id}/destinations": {
-      "post": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "route_id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "route_id": {
-                  "example": "any"
+        },
+        "/auth/login": {
+            "post": {
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "email": {
+                                    "example": "any"
+                                },
+                                "password": {
+                                    "example": "any"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
                 }
-              }
             }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Created"
-          }
+        },
+        "/users/": {
+            "get": {
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "authorization",
+                        "in": "header",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/users/{id}": {
+            "get": {
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "authorization",
+                        "in": "header",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/users/change-password": {
+            "patch": {
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "authorization",
+                        "in": "header",
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "oldPassword": {
+                                    "example": "any"
+                                },
+                                "newPassword": {
+                                    "example": "any"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/users/update-profile": {
+            "patch": {
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "authorization",
+                        "in": "header",
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "firstName": {
+                                    "example": "any"
+                                },
+                                "lastName": {
+                                    "example": "any"
+                                },
+                                "sdt": {
+                                    "example": "any"
+                                },
+                                "address": {
+                                    "example": "any"
+                                },
+                                "birthdate": {
+                                    "example": "any"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/destinations/create": {
+            "post": {
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "example": "any"
+                                },
+                                "description": {
+                                    "example": "any"
+                                },
+                                "openHour": {
+                                    "example": "any"
+                                },
+                                "closeHour": {
+                                    "example": "any"
+                                },
+                                "rate": {
+                                    "example": "any"
+                                },
+                                "latitude": {
+                                    "example": "any"
+                                },
+                                "longitude": {
+                                    "example": "any"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    }
+                }
+            }
+        },
+        "/destinations/getAll": {
+            "get": {
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/destinations/get/{id}": {
+            "get": {
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/customers/getAll": {
+            "get": {
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/bookings/getAll": {
+            "get": {
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/tours/getAll": {
+            "get": {
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/tours/create-tour": {
+            "post": {
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "authorization",
+                        "in": "header",
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "tourName": {
+                                    "example": "any"
+                                },
+                                "description": {
+                                    "example": "any"
+                                },
+                                "startDate": {
+                                    "example": "any"
+                                },
+                                "endDate": {
+                                    "example": "any"
+                                },
+                                "price": {
+                                    "example": "any"
+                                },
+                                "limitOfNumOfGuest": {
+                                    "example": "any"
+                                },
+                                "tourType": {
+                                    "example": "any"
+                                },
+                                "route_id": {
+                                    "example": "any"
+                                },
+                                "guide_id": {
+                                    "example": "any"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    }
+                }
+            }
+        },
+        "/routes/create-route": {
+            "post": {
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "startLatitude": {
+                                    "example": "any"
+                                },
+                                "startLongitude": {
+                                    "example": "any"
+                                },
+                                "endLatitude": {
+                                    "example": "any"
+                                },
+                                "endLongitude": {
+                                    "example": "any"
+                                },
+                                "name": {
+                                    "example": "any"
+                                },
+                                "description": {
+                                    "example": "any"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    }
+                }
+            }
+        },
+        "/routes/get-route/{id}": {
+            "get": {
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/routes/{route_id}/destinations": {
+            "post": {
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "route_id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "route_id": {
+                                    "example": "any"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    }
+                }
+            }
         }
-      }
-    }
-  },
-  "security": [
-    {
-      "bearerAuth": []
-    }
-  ]
+    },
+    "security": [
+        {
+            "bearerAuth": []
+        }
+    ]
 }
