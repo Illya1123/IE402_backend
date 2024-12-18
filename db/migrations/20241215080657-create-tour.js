@@ -27,6 +27,9 @@ module.exports = {
       tourName: {
         type: Sequelize.STRING
       },
+      img: {
+        type: Sequelize.STRING
+      },
       description: {
         type: Sequelize.STRING
       },

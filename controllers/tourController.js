@@ -1,19 +1,18 @@
 const tour = require('../db/models/tour');
 const route = require('../db/models/route');
 const guide = require('../db/models/guide');
+const routeDestinate = require('../db/models/routedestinate');
 
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 
 const createTour = catchAsync(async (req, res, next) => {
-    const { tourName, description, startDate, endDate, price, limitOfNumOfGuest, tourType, route_id, guide_id } = req.body;
+    const { tourName, img, description, startDate, endDate, price, limitOfNumOfGuest, tourType, route_id, guide_id } = req.body;
   
-    // Step 1: Validate that the required fields are present
     if (!tourName || !startDate || !endDate || !price || !limitOfNumOfGuest || !tourType || !route_id || !guide_id) {
       return next(new AppError('All required fields must be provided.', 400));
     }
   
-    // Step 2: Check if the route and guide exist in the database
     const foundRoute = await route.findByPk(route_id);
     if (!foundRoute) {
       return next(new AppError('Route not found', 404));
@@ -24,9 +23,9 @@ const createTour = catchAsync(async (req, res, next) => {
       return next(new AppError('Guide not found', 404));
     }
   
-    // Step 3: Create the tour
     const newTour = await tour.create({
       tourName,
+      img,
       description,
       startDate,
       endDate,
@@ -40,8 +39,7 @@ const createTour = catchAsync(async (req, res, next) => {
     if (!newTour) {
       return next(new AppError('Failed to create the tour', 400));
     }
-  
-    // Step 4: Return the newly created tour as a response
+
     const result = newTour.toJSON();
   
     return res.status(201).json({
@@ -50,4 +48,45 @@ const createTour = catchAsync(async (req, res, next) => {
     });
   });
   
-  module.exports = { createTour };
+const getAllTour = catchAsync(async (req, res, next) => {
+    const foundTours = await tour.findAll();
+  
+    if (!foundTours || foundTours.length === 0) {
+      return next(new AppError('Tour not found', 404));
+    }
+  
+    return res.status(200).json({
+      status: 'success',
+      data: foundTours,
+    });
+  });
+
+  const getTourById = catchAsync(async (req, res, next) => {
+    const { id } = req.params;
+  
+    const foundTour = await tour.findByPk(id);
+
+    if (!foundTour) {
+      return next(new AppError('Tour not found', 404));
+    }
+
+    const foundRouteDestinates = await routeDestinate.findAll({
+      where: { route_id: foundTour.route_id },
+      order: [['order', 'ASC']],
+    });
+
+    if (!foundRouteDestinates || foundRouteDestinates.length === 0) {
+      return next(new AppError('No route destinations found for this tour', 404));
+    }
+
+    return res.status(200).json({
+      status: 'success',
+      data: {
+        tour: foundTour,
+        routeDestinates: foundRouteDestinates,
+      },
+    });
+  });
+  
+
+  module.exports = { createTour, getAllTour, getTourById };
