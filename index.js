@@ -50,14 +50,12 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Route để upload ảnh
 app.post('/upload', upload.single('image'), (req, res) => {
-    // Kiểm tra nếu không có file được tải lên
-    if (!req.file) {
-        return res.status(400).json({ message: 'No file uploaded' });
+    if (req.file) {
+        const Path = `./uploads/${req.file.filename}`;
+        res.status(200).json({ imageUrl: Path });
+    } else {
+        res.status(400).json({ message: 'No file uploaded' });
     }
-    res.json({
-        message: 'File uploaded successfully',
-        file: req.file
-    });
 });
 
 // Avatar upload route
