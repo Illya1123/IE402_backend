@@ -502,6 +502,16 @@
         }
       }
     },
+    "/routes/get-all-routes": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/routes/get-route/{id}": {
       "get": {
         "description": "",
