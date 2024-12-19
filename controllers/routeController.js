@@ -41,7 +41,7 @@ const createRoute = catchAsync(async (req, res, next) => {
     });
 });
 
-// Helper function to calculate the route length using Haversine formula
+
 const calculateRouteLength = (lat1, lon1, lat2, lon2) => {
     const earthRadius = 6371; // Earth's radius in kilometers (use 3958.8 for miles)
 
@@ -66,26 +66,32 @@ const calculateRouteLength = (lat1, lon1, lat2, lon2) => {
     return earthRadius * c; // Return the distance in kilometers
 };
 
-// Helper function to convert degrees to radians
+
 const degreesToRadians = (degrees) => {
     return (degrees * Math.PI) / 180;
 };
 
 const getRoute = catchAsync(async (req, res, next) => {
-    const { id } = req.params;  // Lấy id từ tham số URL
-
-    // Tìm kiếm route trong cơ sở dữ liệu
+    const { id } = req.params;
     const foundRoute = await route.findByPk(id);
 
     if (!foundRoute) {
-        return next(new AppError('Route not found', 404)); // Nếu không tìm thấy route
+        return next(new AppError('Route not found', 404)); 
     }
 
-    // Trả về thông tin route
     return res.status(200).json({
         status: 'success',
         data: foundRoute,
     });
 });
 
-module.exports = { createRoute, getRoute };
+const getAllRoutes = catchAsync(async (req, res, next) => {
+    const routes = await route.findAll();
+
+    return res.status(200).json({
+        status: 'success',
+        data: routes,
+    });
+});
+
+module.exports = { createRoute, getAllRoutes, getRoute };

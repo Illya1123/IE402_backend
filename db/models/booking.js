@@ -45,23 +45,6 @@ const booking = sequelize.define(
         },
       },
     },
-    bookingHour: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      get() {
-        // Đọc từ cơ sở dữ liệu và trả về format dd/MM/yyyy
-        const rawValue = this.getDataValue('bookingDate');
-        return rawValue ? moment(rawValue).format('DD/MM/YYYY') : null;
-      },
-      set(value) {
-        // Chuyển từ format dd/MM/yyyy sang dạng chuẩn ISO trước khi lưu
-        if (value) {
-          this.setDataValue('bookingDate', moment(value, 'DD/MM/YYYY').toDate());
-        } else {
-          this.setDataValue('bookingDate', null);
-        }
-      },
-    },
     numberOfGuest: {
       type: DataTypes.INTEGER,
       allowNull: false,

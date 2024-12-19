@@ -37,8 +37,8 @@ const upload = multer({ storage: storage });
 // Apply CORS before your routes
 app.use(cors({
     origin: 'http://localhost:3000',  // Allow requests from this origin (frontend)
-    methods: 'GET,POST',              // Allow GET and POST methods
-    allowedHeaders: 'Content-Type',   // Allow headers
+    methods: 'GET,POST,PUT,PATCH,DELETE',              // Allow GET and POST methods
+    allowedHeaders:  ['Content-Type', 'Authorization'],   // Allow headers
 }));
 
 app.use(express.json());
@@ -50,14 +50,12 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Route để upload ảnh
 app.post('/upload', upload.single('image'), (req, res) => {
-    // Kiểm tra nếu không có file được tải lên
-    if (!req.file) {
-        return res.status(400).json({ message: 'No file uploaded' });
+    if (req.file) {
+        const Path = `./uploads/${req.file.filename}`;
+        res.status(200).json({ imageUrl: Path });
+    } else {
+        res.status(400).json({ message: 'No file uploaded' });
     }
-    res.json({
-        message: 'File uploaded successfully',
-        file: req.file
-    });
 });
 
 // Avatar upload route

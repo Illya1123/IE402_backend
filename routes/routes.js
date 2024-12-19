@@ -6,6 +6,7 @@ const customerRoute = require('./customerRoute');
 const bookingRoute = require('./bookingRoute');
 const tourRoute = require('./tourRoute');
 const routeRoute = require('./routeRoute');
+const bookingRoute = require('./bookingRoute');
 // const { swaggerUi, swaggerSpec } = require('../config/swagger-ui');
 
 const router = express.Router();
@@ -17,6 +18,7 @@ router.use('/customers', customerRoute);
 router.use('/bookings', bookingRoute);
 router.use('/tours', tourRoute);
 router.use('/routes', routeRoute);
+router.use('/bookings', bookingRoute);
 // router.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 module.exports = router;
