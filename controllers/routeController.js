@@ -85,4 +85,13 @@ const getRoute = catchAsync(async (req, res, next) => {
     });
 });
 
-module.exports = { createRoute, getRoute };
+const getAllRoutes = catchAsync(async (req, res, next) => {
+    const routes = await route.findAll();
+
+    return res.status(200).json({
+        status: 'success',
+        data: routes,
+    });
+});
+
+module.exports = { createRoute, getAllRoutes, getRoute };
