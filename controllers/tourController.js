@@ -102,4 +102,19 @@ const getAllTour = catchAsync(async (req, res, next) => {
     });
   });
 
-  module.exports = { createTour, getAllTour, getTourById };
+  const getTourbyThisId = catchAsync(async (req, res, next) => {
+    const { id } = req.params;
+  
+    const foundTour = await tour.findByPk(id);
+
+    if (!foundTour) {
+      return next(new AppError('Tour not found', 404));
+    }
+
+    return res.status(200).json({
+      status: 'success',
+      data: foundTour,
+    });
+  });
+
+  module.exports = { createTour, getAllTour, getTourById, getTourbyThisId };
