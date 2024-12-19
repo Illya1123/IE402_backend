@@ -21,10 +21,11 @@ const getAllTours = catchAsync(async (req, res, next) => {
 
 const createTour = catchAsync(async (req, res, next) => {
     const { tourName, img, description, startDate, endDate, price, limitOfNumOfGuest, tourType, route_id, guide_id } = req.body;
+  
     if (!tourName || !startDate || !endDate || !price || !limitOfNumOfGuest || !tourType || !route_id || !guide_id) {
         return next(new AppError('All required fields must be provided.', 400));
     }
-
+  
     const foundRoute = await route.findByPk(route_id);
     if (!foundRoute) {
         return next(new AppError('Route not found', 404));
@@ -100,6 +101,5 @@ const getAllTour = catchAsync(async (req, res, next) => {
       },
     });
   });
-  
 
   module.exports = { createTour, getAllTour, getTourById };

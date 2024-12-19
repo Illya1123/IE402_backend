@@ -1,5 +1,4 @@
 const booking = require('../db/models/booking');
-
 const customer = require('../db/models/customer');
 const user = require('../db/models/user');
 
