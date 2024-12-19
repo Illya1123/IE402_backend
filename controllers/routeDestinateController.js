@@ -83,4 +83,35 @@ const createRouteDestinate = catchAsync(async (req, res, next) => {
     });
 });
 
-module.exports = { createRouteDestinate };
+const getRouteDestinate = catchAsync(async (req, res, next) => {
+    const { route_id } = req.params;
+
+    const foundRoute = await routeDestinate.findAll({
+        where: { route_id: route_id },
+        order: [['order', 'ASC']],
+    });
+
+    if (!foundRoute) {
+        return next(new AppError('Route not found', 404));
+    }
+
+    return res.status(200).json({
+        status: 'success',
+        data: foundRoute,
+    });
+});
+
+const getAllRouteDestinate = catchAsync(async (req, res, next) => {
+    const foundRoute = await routeDestinate.findAll();
+
+    if (!foundRoute) {
+        return next(new AppError('Route not found', 404));
+    }
+
+    return res.status(200).json({
+        status: 'success',
+        data: foundRoute,
+    });
+});
+
+module.exports = { createRouteDestinate, getRouteDestinate, getAllRouteDestinate };
