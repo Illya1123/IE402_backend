@@ -16,4 +16,24 @@ const getAllCustomers = catchAsync(async (req, res, next) => {
     });
 });
 
-module.exports = { getAllCustomers };
+const getCustomerById = catchAsync(async (req, res, next) => {
+    const { id } = req.params;
+    console.log("Here: ", id)
+    const foundCustomer = await customer.findOne({
+        where: {
+            userId: id,
+        },
+        attributes: { exclude: ['password'] },
+    });
+
+    if (!foundCustomer) {
+        return next(new AppError('Customer not found', 404));
+    }
+
+    return res.status(200).json({
+        status: 'success',
+        data: foundCustomer,
+    });
+});
+
+module.exports = { getAllCustomers, getCustomerById };
