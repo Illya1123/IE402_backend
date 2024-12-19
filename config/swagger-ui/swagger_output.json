@@ -203,6 +203,32 @@
         }
       }
     },
+    "/users/filter/{userType}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "userType",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
     "/users/change-password": {
       "patch": {
         "description": "",
