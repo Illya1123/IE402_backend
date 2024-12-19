@@ -145,6 +145,7 @@ const login = catchAsync(async (req, res, next) => {
     return res.json({
         status: 'success',
         account_name: result.lastName + ' ' + result.firstName,
+        user_id: result.id,
         user_type: result.userType,
         token,
     });
@@ -152,9 +153,11 @@ const login = catchAsync(async (req, res, next) => {
 
 const authentication = catchAsync(async (req, res, next) => {
     let idToken = '';
+    console.log(req.body);
     if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
         idToken = req.headers.authorization.split(' ')[1];
     }
+    console.log("Token: ", idToken);
     if (!idToken) {
         return next(new AppError('Please login to get access', 401));
     }

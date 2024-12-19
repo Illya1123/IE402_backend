@@ -82,8 +82,7 @@ const getUser = catchAsync(async (req, res, next) => {
     const foundUser = await user.findOne({
         where: {
             id
-        },
-        attributes: { exclude: ['password'] },
+        }
     });
     if (!foundUser) {
         return next(new AppError('User not found', 404));
