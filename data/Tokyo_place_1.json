@@ -1,0 +1,75 @@
+[
+    {
+      "name": "Núi Phú Sĩ",
+      "description": "Biểu tượng của Nhật Bản, là điểm du lịch đầu tiên cần phải đến. Núi Phú Sĩ nằm cách thủ đô Tokyo khoảng 100km và bạn có thể đến đây bằng xe buýt.",
+      "openHour": "08:00",
+      "closeHour": "17:00",
+      "rate": 5,
+      "latitude": 35.3148431,
+      "longitude": 138.9637911
+    },
+    {
+      "name": "Khu phố Harajuku, Tokyo",
+      "description": "Để trải nghiệm văn hóa đại chúng, các cửa hàng boutique, thế giới anime và manga, cùng tất cả những gì đặc sắc nhất, hãy ghé khu phố Harajuku với con đường Takeshita là trung tâm.",
+      "openHour": "10:00",
+      "closeHour": "21:00",
+      "rate": 4,
+      "latitude": 35.6687049,
+      "longitude": 139.7053357
+    },
+    {
+      "name": "Đền Fushimi Inari Taisha",
+      "description": "Là một ngôi đền Shinto quan trọng, đền Fushimi Inari Taisha nổi tiếng với hàng nghìn cánh cổng Torii lấp lánh màu đỏ cam.",
+      "openHour": "07:00",
+      "closeHour": "18:00",
+      "rate": 5,
+      "latitude": 34.967519249999995,
+      "longitude": 135.77971008109822
+    },
+    {
+      "name": "Umeda Sky Building",
+      "description": "Umeda Sky Building là một tòa nhà chọc trời mang tính biểu tượng ở Osaka và được bình chọn là một trong 20 kiến trúc hàng đầu thế giới.",
+      "openHour": "09:00",
+      "closeHour": "20:00",
+      "rate": 4,
+      "latitude": 34.705292650000004,
+      "longitude": 135.4905348639715
+    },
+    {
+      "name": "Lâu đài Himeji Castle",
+      "description": "Nằm ở thành phố cùng tên, lâu đài Himeji, hay còn gọi là lâu đài White Egret, là lâu đài duy nhất của Nhật Bản được UNESCO công nhận là Di sản Thế giới.",
+      "openHour": "08:30",
+      "closeHour": "17:30",
+      "rate": 5,
+      "latitude": 34.839331349999995,
+      "longitude": 134.69402000000002
+    },
+    {
+      "name": "Okinawa Churaumi",
+      "description": "Quần đảo Okinawa của Nhật Bản bao gồm hơn 150 hòn đảo nằm trong khu vực giữa Đài Loan và đất liền của Nhật Bản.",
+      "openHour": "09:00",
+      "closeHour": "18:00",
+      "rate": 4,
+      "latitude": 26.6951917,
+      "longitude": 127.8799018
+    },
+    {
+      "name": "Tokyo Skytree",
+      "description": "Tokyo Skytree: thường được gọi tắt là tháp Tokyo, một minh chứng cho sự tiến bộ của công nghệ và cuộc sống hiện đại của Nhật Bản.",
+      "openHour": "08:00",
+      "closeHour": "22:00",
+      "rate": 5,
+      "latitude": 35.71005425,
+      "longitude": 139.81071409992649
+    },
+    {
+      "name": "Tokyo Imperial Palace",
+      "description": "Tokyo Imperial Palace là nơi ở của Hoàng đế Nhật Bản. Đây cũng là trung tâm hành chính và bảo tàng để trưng bày nghệ thuật và lịch sử Nhật Bản.",
+      "openHour": "09:00",
+      "closeHour": "16:30",
+      "rate": 4,
+      "latitude": 35.68380965,
+      "longitude": 139.75065829131165
+    }
+  ]
+  

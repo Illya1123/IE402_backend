@@ -1,0 +1,48 @@
+[
+    {
+      "name": "Vòng quay khổng lồ - London Eye",
+      "description": "London Eye, còn được gọi là Mắt Luân Đôn, là vòng quay khổng lồ cao 135 mét với 32 cabin. Từ đây, bạn có thể chiêm ngưỡng toàn cảnh 360 độ của London",
+      "openHour": "10:00",
+      "closeHour": "21:00",
+      "rate": 4,
+      "latitude": 35.6687049,
+      "longitude": -0.11967649999999999
+    },
+    {
+      "name": "Phim Trường Warner Bros. Studio",
+      "description": "Phim trường Warner Bros. Studio là một trong những địa điểm tham quan Anh hấp dẫn nhất dành cho các fan của Harry Potter và những người yêu thích điện ảnh.",
+      "openHour": "07:00",
+      "closeHour": "18:00",
+      "rate": 5,
+      "latitude": 34.14887225,
+      "longitude": -118.33762984656904
+    },
+    {
+      "name": "Thành York",
+      "description": "Thành York, được mệnh danh là thành cổ đẹp nhất châu Âu, nổi bật với bức tường dài 5 km bao quanh, từng bảo vệ thành phố khỏi sự xâm lăng của người Viking, Dane và Norman.",
+      "openHour": "09:00",
+      "closeHour": "20:00",
+      "rate": 4,
+      "latitude": 53.96565785,
+      "longitude": -1.0743052444639218
+    },
+    {
+      "name": "Cung điện Buckingham",
+      "description": "Cung điện Buckingham là một trong những địa điểm du lịch nổi tiếng tại Anh Quốc mà du khách không thể bỏ qua. Với khoảng 775 phòng, cung điện này gây ấn tượng mạnh.",
+      "openHour": "08:30",
+      "closeHour": "17:30",
+      "rate": 5,
+      "latitude": 51.9983175,
+      "longitude": -0.9786725
+    },
+    {
+      "name": "Lâu đài Howard",
+      "description": "Lâu đài Howard là một trong những tòa lâu đài lộng lẫy nhất ở Anh, được xây dựng từ cuối thế kỷ 17 và hoàn thành vào đầu thế kỷ 18.",
+      "openHour": "09:00",
+      "closeHour": "18:00",
+      "rate": 4,
+      "latitude": 54.1215627,
+      "longitude": -0.9066478980349335
+    }
+  ]
+  

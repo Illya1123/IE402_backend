@@ -1,0 +1,83 @@
+[
+  {
+    "name": "Núi Bà Đen",
+    "description": "Được mệnh danh là nóc nhà Đông Nam Bộ, núi Bà Đen là một trong những địa điểm du lịch ở miền Nam rất phù hợp với các bạn yêu thích khám phá, chinh phục.",
+    "openHour": "08:30",
+    "closeHour": "18:00",
+    "rate": 4,
+    "latitude": "11.3823834",
+    "longitude": "106.170221"
+  },
+  {
+    "name": "Phú Quốc",
+    "description": "Một địa điểm du lịch miền Nam nhất định phải trải nghiệm là Phú Quốc. Đây là địa điểm lý tưởng thu hút khách du lịch cả trong và ngoài nước đến nghỉ dưỡng, vui chơi và tận hưởng.",
+    "openHour": "07:45",
+    "closeHour": "20:00",
+    "rate": 4,
+    "latitude": "10.2162807",
+    "longitude": "103.9875395"
+  },
+  {
+    "name": "Địa đạo Củ Chi",
+    "description": "Địa đạo Củ Chi là một trong các điểm du lịch miền Nam nằm ở ngoại ô thành phố Hồ Chí Minh. Đến đây, bạn sẽ được khám phá những đường hầm nằm sâu dưới lòng đất, những công trình gắn với một thời chiến đấu hào hùng.",
+    "openHour": "08:00",
+    "closeHour": "17:30",
+    "rate": 4,
+    "latitude": "11.0628579",
+    "longitude": "106.5292334"
+  },
+  {
+    "name": "Nha Trang",
+    "description": "Nha Trang được mệnh danh là thành phố du lịch với điểm đến vạn người mê, rất nhiều hòn đảo đẹp mê hồn như Hòn Chồng, Hòn Mun, Đảo Yến, Đảo Robinson… với những bãi cát trắng trải dài bên cạnh bờ biển.",
+    "openHour": "09:00",
+    "closeHour": "21:00",
+    "rate": 3,
+    "latitude": "12.2431693",
+    "longitude": "109.1898675"
+  },
+  {
+    "name": "Làng Hoa Sa Đéc",
+    "description": "Làng hoa Sa Đéc là một trong những vựa hoa kiểng lớn nhất vùng đồng bằng sông Cửu Long với muôn hoa khoe sắc nổi bật. Đây xứng đáng là địa điểm du lịch miền Nam rực rỡ sắc hoa, đặc biệt là mỗi độ xuân về.",
+    "openHour": "06:30",
+    "closeHour": "17:00",
+    "rate": 4,
+    "latitude": "10.2943716",
+    "longitude": "105.7588147"
+  },
+  {
+    "name": "Chợ Nổi Cái Răng",
+    "description": "Chợ nổi Cái Răng mang những nét đặc trưng của chợ nổi miền Tây sông nước, là một trải nghiệm bạn không thể bỏ qua khi tìm đến các địa điểm du lịch ở miền Nam. Các hoạt động trải nghiệm tại đây.",
+    "openHour": "05:00",
+    "closeHour": "11:00",
+    "rate": 4,
+    "latitude": "10.0034333",
+    "longitude": "105.7450883"
+  },
+  {
+    "name": "Bảo tàng Khmer",
+    "description": "Bảo Tàng Khmer Sóc Trăng là địa điểm du lịch miền Nam thú vị trên hành trình khám phá nét văn hóa cổ truyền của dân tộc Khmer. Nơi đây mang đậm nét kiến trúc chùa Khmer và rất nhiều hiện vật mang đậm đặc trưng của cuộc sống.",
+    "openHour": "08:00",
+    "closeHour": "17:30",
+    "rate": 3,
+    "latitude": "9.9161553",
+    "longitude": "106.3049965"
+  },
+  {
+    "name": "Tràm Chim",
+    "description": "Vườn quốc gia Tràm Chim thuộc tỉnh Đồng Tháp là một khu đất ngập nước, được xếp trong hệ thống rừng đặc dụng của Việt Nam. Nơi đây có nhiều loài chim quý, đặc biệt là sếu đầu đỏ, một loài chim cực kỳ quý hiếm, có tên trong sách đỏ.",
+    "openHour": "07:00",
+    "closeHour": "16:30",
+    "rate": 4,
+    "latitude": "10.670013",
+    "longitude": "105.564687"
+  },
+  {
+    "name": "Mũi Cà Mau",
+    "description": "Địa điểm du lịch miền Nam cuối cùng trong bài viết này cũng chính là mũi Cà Mau - cực Nam của Tổ quốc. Đến mũi Cà Mau, bạn có thể check-in địa danh cuối cùng của Tổ quốc với một niềm tự hào tha thiết.",
+    "openHour": "08:00",
+    "closeHour": "18:00",
+    "rate": 3,
+    "latitude": "8.6058348",
+    "longitude": "104.7190068"
+  }
+]

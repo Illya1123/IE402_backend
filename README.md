@@ -56,11 +56,12 @@ STAFF_PASSWORD=
 CUSTOMER_EMAIL=
 CUSTOMER_PASSWORD=
 
-```
-### Bước 4: lệnh khởi tạo các table cho PostgreSQL
-```bash
-npm run migrate
-npm run seed:all
+POSTGRES_URL=
+POSTGRES_HOST=
+POSTGRES_PORT=
+POSTGRES_USER=
+POSTGRES_PASSWORD=
+POSTGRES_DB=
 
 ```
 

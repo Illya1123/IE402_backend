@@ -1,0 +1,92 @@
+[  
+  {
+    "name": "Marina Bay Sands",
+    "description": "Nổi bật với bể bơi vô cực trên tầng thượng và khung cảnh ngoạn mục của toàn thành phố.",
+    "openHour": "11:00",
+    "closeHour": "15:00",
+    "rate": 5,
+    "latitude": 1.2837564555770304,
+    "longitude": 103.85910590792112
+  },  
+  {
+    "name": "Gardens by the Bay",
+    "description": "Một thiên đường cho những ai yêu thiên nhiên và kiến trúc độc đáo.",
+    "openHour": "10:00",
+    "closeHour": "2:00",
+    "rate": 5,
+    "latitude": 1.281566033360233,
+    "longitude": 103.86361290762697
+  },  
+  {
+    "name": "Sentosa Island",
+    "description": "Hòn đảo giải trí với bãi biển, công viên Universal Studios Singapore và S.E.A. Aquarium.",
+    "openHour": "6:00",
+    "closeHour": "18:00",
+    "rate": 5,
+    "latitude": 1.2464843324631154,
+    "longitude": 103.82900364246639
+  },  
+  {
+    "name": "Merlion Park",
+    "description": "Bức tượng nổi tiếng cao 8,5m với thân cá và đầu sư tử, miệng phun nước",
+    "openHour": "9:00",
+    "closeHour": "21:00",
+    "rate": 5,
+    "latitude": 1.2867881130594243,
+    "longitude": 103.85450104078984
+  },  
+  {
+    "name": "Singapore Zoo",
+    "description": "Nơi bạn có thể ngắm nhìn các loài động vật sống trong môi trường tự nhiên mở",
+    "openHour": "7:00",
+    "closeHour": "17:00",
+    "rate": 4,
+    "latitude": 1.4043471112905368,
+    "longitude": 103.79302343605133
+  },  
+  {
+    "name": "Chinatown",
+    "description": "Khu phố cổ với những con đường đậm chất văn hóa Trung Hoa",
+    "openHour": "9:00",
+    "closeHour": "21:00",
+    "rate": 4,
+    "latitude": 1.2811385696548165,
+    "longitude": 103.84540482302955
+  },  
+  {
+    "name": "Little India",
+    "description": "Một khu vực sôi động với các cửa hàng, đền thờ Hindu, và chợ truyền thống mang đậm văn hóa Ấn Độ",
+    "openHour": "6:00",
+    "closeHour": "22:00",
+    "rate": 4,
+    "latitude": 1.30638339186237,
+    "longitude": 103.8493098324821
+  },  
+  {
+    "name": "Orchard Road",
+    "description": "Thiên đường mua sắm với hàng loạt trung tâm thương mại, cửa hàng thời trang cao cấp",
+    "openHour": "9:00",
+    "closeHour": "18:00",
+    "rate": 5,
+    "latitude": 1.3048187405486993,
+    "longitude": 103.83219774145505
+  },  
+  {
+    "name": "Clarke Quay",
+    "description": "Khu vực sôi động bên bờ sông Singapore, nổi tiếng với các quán bar, nhà hàng và cuộc sống",
+    "openHour": "10:00",
+    "closeHour": "0:00",
+    "rate": 4,
+    "latitude": 1.2906014380847481,
+    "longitude": 103.84647380894289
+  },  
+  {
+    "name": "Jurong Bird Park",
+    "description": "Nơi bạn có thể khám phá hơn 400 loài chim trong không gian thiên nhiên rộng lớn",
+    "openHour": "9:00",
+    "closeHour": "18:00",
+    "rate": 4,
+    "latitude": 1.3186957740056777,
+    "longitude": 103.70642560674591
+  }
+]
