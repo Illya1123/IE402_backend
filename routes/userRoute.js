@@ -1,5 +1,5 @@
 const { authentication, restrictTo, changePassword, updateUser } = require('../controllers/authController');
-const { getAllUser, getAllUserByUserType , getUser } = require('../controllers/userController');
+const { getAllUser, getAllUserByUserType , getUser, updateAvatar } = require('../controllers/userController');
 
 const router = require('express').Router();
 
@@ -9,5 +9,7 @@ router.route('/filter/:userType').get(authentication, restrictTo('0'), getAllUse
 router.patch('/change-password', authentication, changePassword);
 router.patch('/update-profile', authentication, updateUser);
 router.route('/getUser/:userType').get(getAllUserByUserType);
+
+router.route('/avatar-update/:id').patch(authentication, updateAvatar);
 
 module.exports = router;

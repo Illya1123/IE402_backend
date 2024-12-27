@@ -153,11 +153,10 @@ const login = catchAsync(async (req, res, next) => {
 
 const authentication = catchAsync(async (req, res, next) => {
     let idToken = '';
-    console.log(req.body);
     if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
         idToken = req.headers.authorization.split(' ')[1];
     }
-    console.log("Token: ", idToken);
+    
     if (!idToken) {
         return next(new AppError('Please login to get access', 401));
     }
@@ -184,13 +183,13 @@ const restrictTo = (...userType) => {
 };
 
 const changePassword = catchAsync(async (req, res, next) => {
-    const { oldPassword, newPassword } = req.body;
-
+    const { oldPassword, newPassword } = req.body;    
+    
     if (!oldPassword || !newPassword) {
         return next(new AppError('Please provide both old and new passwords', 400));
     }
 
-    const currentUser = req.user; 
+    const currentUser = req.user;     
     const userId = currentUser.id;
 
     const foundUser = await user.findByPk(userId);
