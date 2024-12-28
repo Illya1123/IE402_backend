@@ -35,12 +35,7 @@ const upload = multer({ storage: storage });
 
 // Middleware
 // Apply CORS before your routes
-app.use(cors({
-    origin: 'http://localhost:3000',  // Allow requests from this origin (frontend)
-    methods: 'GET,POST,PUT,PATCH,DELETE',              // Allow GET and POST methods
-    allowedHeaders:  ['Content-Type', 'Authorization'],   // Allow headers
-},
-{ 
+app.use(cors({ 
     origin: 'https://ie-402-frontend.vercel.app/',  // Allow requests from this origin (frontend online)
     methods: 'GET,POST,PUT,PATCH,DELETE',              // Allow GET and POST methods
     allowedHeaders:  ['Content-Type', 'Authorization'],   // Allow headers
